@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - PanteeranKave SCB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #fdfeff; }
+        .bank-logo { height: 48px; width: auto; object-fit: contain; }
+        .card { transition: transform .18s ease, box-shadow .18s ease; }
+        .card:hover { transform: translateY(-6px); box-shadow: 0 10px 30px rgba(2,6,23,0.06); }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <div id="header"></div>
+    <script>
+        fetch("header.html")
+            .then(res => res.text())
+            .then(data => document.getElementById("header").innerHTML = data);
+    </script>
+
+    <main class="pt-28 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-3xl md:text-4xl font-extrabold">Gallery</h1>
+                <p class="mt-2 text-slate-500">Explore our photo collections. Click any gallery to view its images.</p>
+            </div>
+
+            <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Bank 3 Tile -->
+                <a href="bank3.html" class="block rounded-2xl overflow-hidden border border-slate-100 p-0 card hover:shadow">
+                    <div class="w-full h-48 bg-slate-100 overflow-hidden">
+                        <img src="assets/images/bank3-1.jpg" alt="Bank 3" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x600?text=Bank+3'">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Bank 3 Gallery</h3>
+                        <p class="text-sm text-slate-500 mt-1">12 images • 3 per row</p>
+                    </div>
+                </a>
+
+                <!-- Placeholder tiles (add more galleries as needed) -->
+                <div class="block rounded-2xl overflow-hidden border border-slate-100 p-0 card">
+                    <div class="w-full h-48 bg-slate-50 flex items-center justify-center text-slate-400">
+                        <i data-lucide="image" class="w-20 h-20"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Main Gallery</h3>
+                        <p class="text-sm text-slate-500 mt-1">Add images to the main gallery on this page.</p>
+                    </div>
+                </div>
+
+                <div class="block rounded-2xl overflow-hidden border border-slate-100 p-0 card">
+                    <div class="w-full h-48 bg-slate-50 flex items-center justify-center text-slate-400">
+                        <i data-lucide="image" class="w-20 h-20"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Events</h3>
+                        <p class="text-sm text-slate-500 mt-1">Event photos and highlights.</p>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+    <script>
+        fetch("footer.html")
+            .then(res => res.text())
+            .then(data => document.getElementById("footer").innerHTML = data);
+    </script>
+
+    <script>
+        // Initialize Lucide Icons
+        window.onload = () => {
+            lucide.createIcons();
+        };
+    </script>
+</body>
+</html>
