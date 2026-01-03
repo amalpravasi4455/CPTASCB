@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PanteeranKave SCB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #fdfeff; }
+        .nav-link { transition: color 0.3s ease; }
+        .bank-logo { height: 48px; width: auto; object-fit: contain; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- HEADER SECTION -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-sky-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
+                    <img src="PSCB_logo.png" alt="PSCB Logo" class="bank-logo rounded-lg" onerror="this.src='https://via.placeholder.com/48?text=PSCB'">
+                    <span class="text-2xl font-bold text-slate-900 tracking-tight">
+                        PanteeranKave <span class="text-sky-500">SCB</span>
+                    </span>
+                </div>
+                
+                <!-- Navigation -->
+                <div class="hidden md:flex space-x-8 font-medium">
+                    <a href="index.html" class="nav-link text-sky-600 border-b-2 border-sky-500 pb-1">Home</a>
+                    <a href="about.html" class="nav-link text-slate-600 hover:text-sky-500">About</a>
+                    <a href="services.html" class="nav-link text-slate-600 hover:text-sky-500">Services</a>
+                    <a href="gallery.html" class="nav-link text-slate-600 hover:text-sky-500">Gallery</a>
+                    <a href="contact.html" class="nav-link text-slate-600 hover:text-sky-500">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <div class="md:hidden">
+                    <button class="p-2 text-sky-600">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>
