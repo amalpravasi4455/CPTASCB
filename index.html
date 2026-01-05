@@ -20,7 +20,17 @@
     <script>
         fetch("header.html")
             .then(res => res.text())
-            .then(data => document.getElementById("header").innerHTML = data);
+            .then(data => {
+                document.getElementById("header").innerHTML = data;
+                const currentPage = window.location.pathname.split("/").pop() || 'index.html';
+                const navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === currentPage) {
+                        link.classList.add('text-sky-500', 'font-bold', 'border-b-2', 'border-sky-500');
+                        link.classList.remove('text-slate-600');
+                    }
+                });
+            });
     </script>
     <!-- MAIN CONTENT AREA -->
     <main class="pt-20">

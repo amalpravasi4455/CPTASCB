@@ -1,77 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pantheerankave SCB</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com" rel="preconnect" >
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin >
+   
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #fdfeff; }
-        .nav-link { transition: color 0.3s ease; }
-        .bank-logo { height: 48px; width: auto; object-fit: contain; }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #fdfeff;
+      }
+      .nav-link {
+        transition: color 0.3s ease;
+      }
+      .bank-logo {
+        height: 48px;
+        width: auto;
+        object-fit: contain;
+      }
     </style>
-</head>
-<body class="text-slate-800">
-
-
+  </head>
+  <body class="text-slate-800">
     <div id="header"></div>
-    <script>
-        fetch("header.html")
-            .then(res => res.text())
-            .then(data => document.getElementById("header").innerHTML = data);
-    </script>
     <!-- MAIN CONTENT AREA -->
     <main class="pt-20">
-        <!-- Hero Section -->
-       <section class="py-24">
-    <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-5 gap-16">
-        <div class="lg:col-span-2">
+      <!-- Hero Section -->
+      <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-5 gap-16" style="margin-bottom: 20px;">
+          <div class="lg:col-span-2">
             <h2 class="text-4xl font-extrabold mb-8">Visit Our Branches</h2>
             <div class="space-y-6">
-                <!-- Main Branch Details -->
-                <div class="p-6 rounded-3xl bg-sky-50 border border-sky-100">
-                    <h4 class="font-bold text-xl mb-4 text-sky-700">Main Branch</h4>
-                    <div class="space-y-3 text-slate-600">
-                        <p class="flex gap-3"><i data-lucide="map-pin" class="text-sky-500"></i> PanteeranKave, Kozhikode, <br>Kerala - 673019</p>
-                        <p class="flex gap-3"><i data-lucide="phone" class="text-sky-500"></i> +91 495 243 1122</p>
-                    </div>
+              <!-- Main Branch Details -->
+              <!-- Main Branch Details -->
+              <div id="main-branch" onclick="updateMap('main')" class="p-6 rounded-3xl bg-sky-50 border-2 border-sky-300 shadow-md cursor-pointer transition-all duration-300">
+                <h4 class="font-bold text-xl mb-4 text-sky-700">Main Branch</h4>
+                <div class="space-y-3 text-slate-600">
+                  <p class="flex gap-3">
+                    <i data-lucide="map-pin" class="text-sky-500"></i>
+                    <span>
+                      Panteerankave, Kozhikode, Kerala - 673019 <br />
+                      <span class="text-sm text-slate-400"
+                        >പന്തീരാങ്കാവ്, കോഴിക്കോട്- 673019</span
+                      >
+                    </span>
+                  </p>
+                  <p class="flex gap-3">
+                    <i data-lucide="phone" class="text-sky-500"></i> +91 4952431122
+                  </p>
                 </div>
-                <!-- Branch Details -->
-                <div class="p-6 rounded-3xl bg-white border border-slate-100">
-                    <h4 class="font-bold text-xl mb-4 text-slate-700">Branch</h4>
-                    <div class="space-y-3 text-slate-600">
-                        <p class="flex gap-3"><i data-lucide="map-pin" class="text-sky-500"></i> Cyber Park Road, Nellikkode, <br>Kozhikode - 673016</p>
-                        <p class="flex gap-3"><i data-lucide="phone" class="text-sky-500"></i> +91 495 243 0088</p>
-                    </div>
+              </div>
+              <!-- Branch Details -->
+              <!-- Branch Details -->
+              <div id="nellikkode-branch" onclick="updateMap('nellikkode')" class="p-6 rounded-3xl bg-white border border-slate-100 cursor-pointer transition-all duration-300 hover:border-sky-200">
+                <h4 class="font-bold text-xl mb-4 text-slate-700">
+                  Nellikkode Branch
+                </h4>
+                <div class="space-y-3 text-slate-600">
+                  <p class="flex gap-3">
+                    <i data-lucide="map-pin" class="text-sky-500"></i>
+                    <span>
+                      Cyber Park Road, Nellikkode,Kozhikode - 673016 <br />
+                      <span class="text-sm text-slate-400"
+                        >സൈബർ പാർക്ക് റോഡ്, നെല്ലിക്കോട്, കോഴിക്കോട് -
+                        673016</span
+                      >
+                    </span>
+                  </p>
+                  <p class="flex gap-3">
+                    <i data-lucide="phone" class="text-sky-500"></i> +91 495243 0088
+                  </p>
                 </div>
+              </div>
             </div>
-        </div>
-        <div class="lg:col-span-3 bg-slate-50 p-10 rounded-[3rem]">
+          </div>
+          <div class="lg:col-span-3 bg-slate-50 p-10 rounded-[3rem]">
             <h3 class="text-2xl font-bold mb-6">Send an Inquiry</h3>
             <form class="space-y-4">
-                <input type="text" placeholder="Name" class="w-full p-4 rounded-2xl border border-sky-100">
-                <textarea rows="4" placeholder="Message" class="w-full p-4 rounded-2xl border border-sky-100"></textarea>
-                <button class="w-full bg-sky-500 text-white font-bold py-4 rounded-2xl">Submit</button>
+              <input
+                type="text"
+                placeholder="Name"
+                class="w-full p-4 rounded-2xl border border-sky-100"
+              />
+              <textarea
+                rows="4"
+                placeholder="Message"
+                class="w-full p-4 rounded-2xl border border-sky-100"
+              ></textarea>
+              <button
+                class="w-full bg-sky-500 text-white font-bold py-4 rounded-2xl"
+              >
+                Submit
+              </button>
             </form>
+          </div>
+         
         </div>
-    </div>
-</section>
+         
+        <div class="" data-aos="fade-up" data-aos-delay="200">
+          <iframe
+            id="branch-map"
+            style="border: 0; width: 100%; height: 470px"
+            src="https://maps.google.com/maps?q=Pantheerankave,Kozhikode&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+      </section>
     </main>
 
-    
     <div id="footer"></div>
-     <script>
-        fetch("footer.html")
-            .then(res => res.text())
-            .then(data => document.getElementById("footer").innerHTML = data);
-    </script>
     <script>
-        // Initialize Lucide Icons
-        window.onload = () => {
-            lucide.createIcons();
-        };
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((data) => (document.getElementById("footer").innerHTML = data));
+      fetch("header.html")
+        .then((res) => res.text())
+        .then((data) => {
+            document.getElementById("header").innerHTML = data;
+            const currentPage = window.location.pathname.split("/").pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('text-sky-500', 'font-bold', 'border-b-2', 'border-sky-500');
+                    link.classList.remove('text-slate-600');
+                }
+            });
+        });
+      // Initialize Lucide Icons
+      window.onload = () => {
+        lucide.createIcons();
+      };
+
+      function updateMap(branch) {
+        const mapFrame = document.getElementById("branch-map");
+        const mainBranch = document.getElementById("main-branch");
+        const nellikkodeBranch = document.getElementById("nellikkode-branch");
+
+        if (branch === "main") {
+          mapFrame.src =
+            "https://maps.google.com/maps?q=Pantheerankave,Kozhikode&t=&z=15&ie=UTF8&iwloc=&output=embed";
+          
+          // Active styling for main
+          mainBranch.className =
+            "p-6 rounded-3xl bg-sky-50 border-2 border-sky-300 shadow-md cursor-pointer transition-all duration-300";
+          // Inactive styling for nellikkode
+          nellikkodeBranch.className =
+            "p-6 rounded-3xl bg-white border border-slate-100 cursor-pointer transition-all duration-300 hover:border-sky-200";
+        } else if (branch === "nellikkode") {
+          mapFrame.src =
+            "https://maps.google.com/maps?q=Nellikkode,Kozhikode&t=&z=15&ie=UTF8&iwloc=&output=embed";
+          
+          // Active styling for nellikkode
+          nellikkodeBranch.className =
+            "p-6 rounded-3xl bg-sky-50 border-2 border-sky-300 shadow-md cursor-pointer transition-all duration-300";
+          // Inactive styling for main
+          mainBranch.className =
+            "p-6 rounded-3xl bg-white border border-slate-100 cursor-pointer transition-all duration-300 hover:border-sky-200";
+        }
+      }
     </script>
-</body>
+  </body>
 </html>

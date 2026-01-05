@@ -16,35 +16,23 @@
 <body class="text-slate-800">
 
     <!-- HEADER SECTION -->
-    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-sky-100 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
-                    <img src="assets/images/PSCB_logo.png" alt="PSCB Logo" class="bank-logo rounded-lg" onerror="this.src='https://via.placeholder.com/48?text=PSCB'">
-                    <span class="text-2xl font-bold text-slate-900 tracking-tight">
-                        PanteeranKave <span class="text-sky-500">SCB</span>
-                    </span>
-                </div>
-                
-                <!-- Navigation -->
-                <div class="hidden md:flex space-x-8 font-medium">
-                    <a href="index.html" class="nav-link text-sky-600 border-b-2 border-sky-500 pb-1">Home</a>
-                    <a href="about.html" class="nav-link text-slate-600 hover:text-sky-500">About</a>
-                    <a href="services.html" class="nav-link text-slate-600 hover:text-sky-500">Services</a>
-                    <a href="gallery.html" class="nav-link text-slate-600 hover:text-sky-500">Gallery</a>
-                    <a href="contact.html" class="nav-link text-slate-600 hover:text-sky-500">Contact</a>
-                </div>
-
-                <!-- Mobile Menu Toggle -->
-                <div class="md:hidden">
-                    <button class="p-2 text-sky-600">
-                        <i data-lucide="menu"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
+  
+    <div id="header"></div>
+    <script>
+        fetch("header.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("header").innerHTML = data;
+                const currentPage = window.location.pathname.split("/").pop() || 'index.html';
+                const navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === currentPage) {
+                        link.classList.add('text-sky-500', 'font-bold', 'border-b-2', 'border-sky-500');
+                        link.classList.remove('text-slate-600');
+                    }
+                });
+            });
+    </script>
 
     <!-- MAIN CONTENT AREA -->
     <main class="pt-20">
@@ -53,11 +41,11 @@
     <div class="max-w-7xl mx-auto px-4 text-center mb-16">
         <h2 class="text-4xl font-extrabold mb-4">ഞങ്ങളുടെ ബാങ്കിംഗ് സേവനങ്ങൾ</h2>
     </div>
-    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8">
         <!-- Kdumbashree Loan Service -->
         <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border-2 border-sky-100">
-            <div class="w-16 h-16 bg-sky-50 text-sky-500 rounded-2xl flex items-center justify-center mb-8">
-                <i data-lucide="users" size="32"></i>
+            <div class="mb-6 overflow-hidden rounded-2xl">
+                <img src="assets/img/kudumbashree_loan.png" alt="Kudumbashree Loan" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
             </div>
             <h3 class="text-2xl font-bold mb-4">കുടുംബശ്രീ വായ്പകൾ</h3>
             <p class="text-slate-600 mb-6 text-sm">സ്ത്രീകൾക്കും പ്രാദേശിക സ്വയം സഹായ സംഘങ്ങൾക്കും കുറഞ്ഞ പലിശ നിരക്കിൽ വായ്പകൾ.</p>
@@ -66,8 +54,8 @@
         
         <!-- Savings Account -->
         <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border-2 border-sky-100">
-            <div class="w-16 h-16 bg-sky-50 text-sky-500 rounded-2xl flex items-center justify-center mb-8">
-                <i data-lucide="wallet" size="32"></i>
+            <div class="mb-6 overflow-hidden rounded-2xl">
+                <img src="assets/img/savings_account.png" alt="Savings Account" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
             </div>
             <h3 class="text-2xl font-bold mb-4">സേവിംഗ്സ് അക്കൗണ്ട്</h3>
             <p class="text-slate-600 mb-6 text-sm">എല്ലാവർക്കും ലളിതമായ ബാങ്കിംഗ് സൗകര്യം.</p>
@@ -76,8 +64,8 @@
 
         <!-- Fixed Deposit -->
         <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border-2 border-sky-100">
-            <div class="w-16 h-16 bg-sky-50 text-sky-500 rounded-2xl flex items-center justify-center mb-8">
-                <i data-lucide="landmark" size="32"></i>
+            <div class="mb-6 overflow-hidden rounded-2xl">
+                <img src="assets/img/fixed_deposit.png" alt="Fixed Deposit" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
             </div>
             <h3 class="text-2xl font-bold mb-4">സ്ഥിര നിക്ഷേപം</h3>
             <p class="text-slate-600 mb-6 text-sm">ഉയർന്ന പലിശ നിരക്കിൽ നിങ്ങളുടെ സമ്പാദ്യം വളർത്തൂ.</p>
@@ -86,8 +74,8 @@
 
         <!-- Gold Loan -->
         <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border-2 border-sky-100">
-            <div class="w-16 h-16 bg-sky-50 text-sky-500 rounded-2xl flex items-center justify-center mb-8">
-                <i data-lucide="coins" size="32"></i>
+            <div class="mb-6 overflow-hidden rounded-2xl">
+                <img src="assets/img/gold_loan.png" alt="Gold Loan" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
             </div>
             <h3 class="text-2xl font-bold mb-4">സ്വർണ്ണ വായ്പ</h3>
             <p class="text-slate-600 mb-6 text-sm">നിങ്ങളുടെ സ്വർണ്ണാഭരണങ്ങൾക്ക്മേൽ ഉടനടി വായ്പ.</p>

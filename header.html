@@ -11,30 +11,34 @@
         body { font-family: 'Inter', sans-serif; background-color: #fdfeff; }
         .nav-link { transition: color 0.3s ease; }
         .bank-logo { height: 48px; width: auto; object-fit: contain; }
+        .nav-item { list-style: none; }
     </style>
 </head>
 <body class="text-slate-800">
 
     <!-- HEADER SECTION -->
-    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-sky-100 shadow-sm">
+     <header style="background-color: #136ac0;">
+    <nav class="fixed w-full z-50 bg-sky-50/95 backdrop-blur-md border-b border-sky-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
-                    <img src="PSCB_logo.png" alt="PSCB Logo" class="bank-logo rounded-lg" onerror="this.src='https://via.placeholder.com/48?text=PSCB'">
+                    <img src="assets/images/PSCB_logo.png" alt="PSCB Logo" class="bank-logo rounded-lg" onerror="this.src='https://via.placeholder.com/48?text=PSCB'">
                     <span class="text-2xl font-bold text-slate-900 tracking-tight">
-                        PanteeranKave <span class="text-sky-500">SCB</span>
+                        Panteerankave <span class="text-sky-500">SCB</span>
                     </span>
                 </div>
                 
                 <!-- Navigation -->
                 <div class="hidden md:flex space-x-8 font-medium">
-                    <a href="index.html" class="nav-link text-sky-600 border-b-2 border-sky-500 pb-1">Home</a>
-                    <a href="about.html" class="nav-link text-slate-600 hover:text-sky-500">About</a>
-                    <a href="services.html" class="nav-link text-slate-600 hover:text-sky-500">Services</a>
-                    <a href="gallery.html" class="nav-link text-slate-600 hover:text-sky-500">Gallery</a>
-                    <a href="contact.html" class="nav-link text-slate-600 hover:text-sky-500">Contact</a>
-                </div>
+                    <ul class="flex space-x-8">
+                        <li class="nav-item"><a href="index.html" class="nav-link text-slate-600 hover:text-sky-500">Home</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link text-slate-600 hover:text-sky-500">About</a></li>
+                        <li class="nav-item"><a href="services.html" class="nav-link text-slate-600 hover:text-sky-500">Services</a></li>
+                        <li class="nav-item"><a href="gallery.html" class="nav-link text-slate-600 hover:text-sky-500">Gallery</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link text-slate-600 hover:text-sky-500">Contact</a></li>
+                    </ul>
+                </div>   
 
                 <!-- Mobile Menu Toggle -->
                 <div class="md:hidden">
@@ -45,5 +49,6 @@
             </div>
         </div>
     </nav>
+    </header>
 </body>
 </html>
