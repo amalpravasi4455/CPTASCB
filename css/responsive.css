@@ -26,7 +26,7 @@
     .main-header {
         position: sticky;
         top: 0;
-        background: var(--white);
+        background: var(--primary-color);
         z-index: 1000;
         padding: 12px 0;
     }
@@ -150,7 +150,7 @@
 
     .nav-links li {
         width: 100%;
-        text-align: left;
+        text-align: center;
         /* Left align for cleaner lists with icons */
         margin: 0;
     }
@@ -235,9 +235,14 @@
     .about-text,
     .gallery-item,
     .contact-info,
-    .contact-form-container {
+    .contact-form-container,
+    .welcome-text,
+    .welcome-image,
+    .text-content,
+    .image-content {
         margin-bottom: 30px;
         width: 100%;
+        flex: 1 1 100% !important;
     }
 
     .mobile-order-1 {
