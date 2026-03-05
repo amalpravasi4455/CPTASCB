@@ -198,12 +198,12 @@ img {
 }
 
 .nav-links li a {
-    font-weight: 700;
+    /* font-weight: 700; */
     color: rgba(255, 255, 255, 0.75);
     font-size: 1rem;
     padding: 5px 0;
     transition: var(--transition);
-    border-bottom: 3px solid transparent;
+    border-bottom: 2px solid transparent;
 }
 
 .nav-links li a:hover,
