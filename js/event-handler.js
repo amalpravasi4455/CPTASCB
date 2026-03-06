@@ -19,12 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // specific back link logic
     const backLink = document.querySelector('.back-link');
     if (backLink) {
+        const isEnglish = window.location.pathname.endsWith('_en.html');
         if (eventId === 'videos') {
-            backLink.href = 'gallery.html';
-            backLink.innerHTML = '<i class="fas fa-arrow-left"></i> Back to Main Gallery';
+            backLink.href = isEnglish ? 'gallery_en.html' : 'gallery.html';
+            backLink.innerHTML = isEnglish ? '<i class="fas fa-arrow-left"></i> Back to Main Gallery' : '<i class="fas fa-arrow-left"></i> ചിത്രങ്ങളുടെ ഗാലറിയിലേക്ക്';
         } else {
-            backLink.href = 'image-gallery.html';
-            backLink.innerHTML = '<i class="fas fa-arrow-left"></i> Back to Image Gallery';
+            backLink.href = isEnglish ? 'image-gallery_en.html' : 'image-gallery.html';
+            backLink.innerHTML = isEnglish ? '<i class="fas fa-arrow-left"></i> Back to Image Gallery' : '<i class="fas fa-arrow-left"></i> പ്രധാന ഗാലറിയിലേക്ക്';
         }
     }
 

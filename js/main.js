@@ -1,6 +1,30 @@
+window.switchLanguage = function(lang) {
+    let currentPath = window.location.pathname;
+    let pageName = currentPath.split("/").pop() || 'index.html';
+    
+    if (lang === 'en') {
+        if (!pageName.includes('_en')) {
+            let newPage = pageName.replace('.html', '_en.html');
+            window.location.href = newPage;
+        }
+    } else if (lang === 'ml') {
+        if (pageName.includes('_en')) {
+            let newPage = pageName.replace('_en.html', '.html');
+            window.location.href = newPage;
+        }
+    }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
+    const path = window.location.pathname;
+    const page = path.split("/").pop() || 'index.html';
+    const isEnglish = page.includes('_en.html');
+
+    const headerFile = isEnglish ? 'components/header_en.html' : 'components/header.html';
+    const footerFile = isEnglish ? 'components/footer_en.html' : 'components/footer.html';
+
     // Load Header
-    fetch('components/header.html')
+    fetch(headerFile)
         .then(response => response.text())
         .then(data => {
             document.querySelector('#header-placeholder').innerHTML = data;
@@ -9,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     // Load Footer
-    fetch('components/footer.html')
+    fetch(footerFile)
         .then(response => response.text())
         .then(data => {
             document.querySelector('#footer-placeholder').innerHTML = data;
@@ -73,8 +97,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function highlightActiveLink() {
         const path = window.location.pathname;
         const page = path.split("/").pop() || 'index.html';
-        const pageName = page.replace('.html', '');
-        const navId = (pageName === 'index' || pageName === '') ? 'nav-home' : `nav-${pageName}`;
+        const pageName = page.replace('.html', ''); // e.g., 'about' or 'about_en'
+        
+        const idExt = pageName.endsWith('_en') ? '-en' : '';
+        const baseName = pageName.replace('_en', '');
+        
+        const navId = (baseName === 'index' || baseName === '') ? 'nav-home' + idExt : `nav-${baseName}${idExt}`;
         const activeLink = document.getElementById(navId);
         if (activeLink) activeLink.classList.add('active');
     }
